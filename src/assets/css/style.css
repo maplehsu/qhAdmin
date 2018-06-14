@@ -1,22 +1,37 @@
-.el-header,
-.el-footer {
-    background-color: #B3C0D1;
-    color: #333;
-    text-align: center;
-    line-height: 60px;
+.el-header {
+    background-color: #2979ff;
+    box-shadow: 0 0 6px rgba(0,0,0,.1);
+    position: relative;
+    height: 70px;
+    line-height: 70px;
+    color: #fff;
+}
+
+.box {
+    background: #fff;
+    padding: 40px;
+    box-shadow: 0 0 6px rgba(0,0,0,.1);
 }
 
 .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
+    background-color: #fff;
+   
     text-align: center;
-    line-height: 200px;
+}
+
+.el-menu {
+    border: 0!important;
+    box-shadow: 0 0 6px rgba(0,0,0,.1)!important;
 }
 
 .el-main {
-    background-color: #E9EEF3;
-    color: #333;
+    background-color: #f5f8fa;
+    color: #86939e;
+}
+
+.el-table {
     text-align: center;
+    color: #86939e;
 }
 
 body>.el-container {
@@ -46,4 +61,52 @@ body>.el-container {
 
 .ql-container.ql-snow {
     min-height: 240px;
+}
+
+.el-menu-item, .el-submenu__title {
+    line-height: 44px!important;
+    height: 44px!important;
+}
+
+.el-menu-item {
+    font-size: 12px!important;
+    border-bottom: 1px solid #f8f8f8;
+    text-align: left;
+    color: #86939e!important;
+}
+
+.el-menu-item.is-active {
+    color: #03a9f4!important;
+}
+
+.fc-blue {
+    color: #2196f3!important;
+}
+
+.fc-green {
+    color: #8bc34a!important;
+}
+
+.fc-purple {
+    color: #9c27b0!important;
+}
+
+.el-menu-item:focus, .el-menu-item:hover {
+    background: #f8f9fa!important;
+}
+
+.el-button--primary {
+    border-radius: 3px!important;
+    background-color: #03a9f4!important;
+    border: 1px solid #0286c2!important;
+}
+
+.el-button--primary:hover {
+    box-shadow: 0 3px 9px 0 rgba(0,0,0,.26)!important;
+    opacity: .8!important;
+    background: #038fce!important;
+}
+
+.el-table thead .cell {
+    text-align: center!important;
 }
