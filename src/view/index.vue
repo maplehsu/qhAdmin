@@ -13,6 +13,9 @@
               <el-table-column prop="title" label="标题">
               </el-table-column>
               <el-table-column prop="cover" label="封面">
+                　<template scope="scope">
+              　　　　<img v-for="img in scope.row.cover" :src="img.url" width="50" height="50">
+              　　</template>
               </el-table-column>
               <el-table-column prop="price" label="价格">
               </el-table-column>
@@ -60,9 +63,9 @@
           <el-input v-model="formEdit.title" placeholder="请输入标题"></el-input>
         </el-form-item>
         <el-form-item label="封面" :label-width="formLabelWidth">
-          <el-upload action="https://jsonplaceholder.typicode.com/posts/" :limit="1" :on-success="coverSuccess" style="text-align: left">
+          <el-upload ref="editUpload" :action="coverUrl" :limit="1" :on-remove="coverClear" :on-success="coverEditSuccess" style="text-align: left" :file-list="formEdit.cover">
             <el-button size="small" type="primary">点击上传</el-button>
-            <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+            <div slot="tip" class="el-upload__tip">如果需要替换图片，请先删除已上传图片。</div>
           </el-upload>
         </el-form-item>
         <el-form-item label="路线价格" :label-width="formLabelWidth">
@@ -107,11 +110,11 @@
           }
         },
         form: {
-          title: '青海甘肃大环线7日拼包车自由行（舒心游戏+公路拍摄+安全无忧）',
-          cover: '',
-          price: '100',
+          title: '',
+          cover: [],
+          price: '',
           notice: '本产品同样适用于公司单位独立成团，如您的出行人数大于9人，又或者您有特殊的订制需求，那么请将您的详细需求发送到指定邮箱：xxxxxxxxxxx@xxx.com，稍后将有专业的产品旅游规划师亲自为您处理，感谢选择与信赖！',
-          content: '内容'
+          content: ''
         },
         formEdit: {},
         formLabelWidth: '120px'
@@ -159,10 +162,21 @@
           })
         })
       },
-      coverSuccess(res, file) {
-        console.log(res);
-          
-        this.form.cover = URL.createObjectURL(file.raw)
+      coverSuccess(res, file) {        
+        this.form.cover.push({
+          name: res.filename,
+          url: process.env.API_ROOT + '/' + res.filename
+        })
+      },
+      coverClear(file, fileList)  {
+        this.$refs.editUpload.clearFiles();
+      },
+      coverEditSuccess(res, file) {
+        this.formEdit.cover = []
+        this.formEdit.cover.push({
+          name: res.filename,
+          url: process.env.API_ROOT + '/' + res.filename
+        })
       },
       openEdit(row) {
         this.editForm = true
