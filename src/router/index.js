@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/view/index'
+import Reserve from '@/view/reserve'
 
 Vue.use(Router)
 
@@ -11,6 +12,11 @@ const router = new Router({
       path: '/',
       name: 'index',
       component: Index
+    },
+    {
+      path: '/reserve',
+      name: 'reserve',
+      component: Reserve
     }
   ]
 })

@@ -1,13 +1,9 @@
 <template>
   <el-aside width="270px">
-    <el-menu default-active="1">
-      <el-menu-item index="1">
-        <i class="el-icon-location fc-purple"></i>
-        <span slot="title">路线管理</span>
-      </el-menu-item>
-      <el-menu-item index="2">
-        <i class="el-icon-tickets fc-green"></i>
-        <span slot="title">预约订单</span>
+    <el-menu router :default-active="this.$route.path">
+      <el-menu-item  v-for="item in url" :index="item.path">
+          <i :class="item.icon"></i>
+          <span slot="title">{{item.title}}</span>
       </el-menu-item>
     </el-menu>
   </el-aside>
@@ -16,7 +12,19 @@
   export default {
     components: {},
     data() {
-      return {};
+      return {
+         url: [{
+           title: '路线管理',
+           path: '/',
+           index: 1,
+           icon: 'el-icon-location fc-purple'
+         }, {
+           title: '预约订单',
+           path: '/reserve',
+           index: 2,
+           icon: 'el-icon-tickets fc-green'
+         }]
+      };
     },
     mounted() {
     },
