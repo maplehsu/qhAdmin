@@ -15,7 +15,7 @@
       return {
          url: [{
            title: '路线管理',
-           path: '/',
+           path: '/index',
            index: 1,
            icon: 'el-icon-location fc-purple'
          }, {
@@ -23,6 +23,11 @@
            path: '/reserve',
            index: 2,
            icon: 'el-icon-tickets fc-green'
+         }, {
+           title: '轮播图',
+           path: '/banner',
+           index: 2,
+           icon: 'el-icon-picture fc-green'
          }]
       };
     },

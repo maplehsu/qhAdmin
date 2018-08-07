@@ -61,9 +61,9 @@
           confirmButtonText: '确定',
           cancelButtonText: '取消'
         }).then(() => {          
-          this.axios.post(this.api.deletePath, {
+          this.axios.post(this.api.deleteReserve, {
             _id: row._id
-          }).then(res => {            
+          }).then(res => {         
             if (res.status == 200) {
               this.$message('删除成功')
               this.init()

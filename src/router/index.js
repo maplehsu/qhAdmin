@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/view/index'
 import Reserve from '@/view/reserve'
+import Login from '@/view/login'
+import Banner from '@/view/banner'
 
 Vue.use(Router)
 
@@ -10,6 +12,11 @@ const router = new Router({
   routes: [
     {
       path: '/',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/index',
       name: 'index',
       component: Index
     },
@@ -17,6 +24,11 @@ const router = new Router({
       path: '/reserve',
       name: 'reserve',
       component: Reserve
+    },
+    {
+      path: '/banner',
+      name: 'banner',
+      component: Banner
     }
   ]
 })
