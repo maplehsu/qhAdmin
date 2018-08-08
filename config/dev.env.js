@@ -3,7 +3,7 @@ const merge = require('webpack-merge')
 const prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
-  NODE_ENV: '"development"',
-  // API_ROOT: '"http://server.izmqh.com"'
-  API_ROOT: '"http://192.168.1.107:7777"'
+    NODE_ENV: '"development"',
+    // API_ROOT: '"http://server.izmqh.com"'
+    API_ROOT: '"http://127.0.0.1:7777"'
 })

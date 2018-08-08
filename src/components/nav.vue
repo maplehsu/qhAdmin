@@ -28,6 +28,11 @@
            path: '/banner',
            index: 2,
            icon: 'el-icon-picture fc-green'
+         }, {
+           title: '旅游攻略',
+           path: '/strategy',
+           index: 2,
+           icon: 'el-icon-picture fc-green'
          }]
       };
     },
