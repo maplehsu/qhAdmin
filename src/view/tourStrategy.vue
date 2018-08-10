@@ -121,23 +121,22 @@
     },
     methods: {
       init() {
-        this.axios.get(this.api.getPathList).then(res => {   
+        this.axios.get(this.api.getStrategy).then(res => {   
           console.log(res, "ressss")       
           this.tableData = res.data
         })
       },
       addSave() {
-        console.log(this.form)
-        // this.axios.post(this.api.addPath, this.form).then(res => {
-        //   if (res.status == 200) {
-        //     this.addForm = false
-        //     this.$message('添加成功')
-        //     this.init()
-        //   }
-        // })
+        this.axios.post(this.api.addStrategy, this.form).then(res => {
+          if (res.status == 200) {
+            this.addForm = false
+            this.$message('添加成功')
+            this.init()
+          }
+        })
       },
       editSave() {
-        this.axios.post(this.api.editPath, this.formEdit).then(res => {
+        this.axios.post(this.api.editStrategy, this.formEdit).then(res => {
           if (res.status == 200) {
             this.editForm = false
             this.$message('修改成功')
@@ -150,8 +149,8 @@
           confirmButtonText: '确定',
           cancelButtonText: '取消'
         }).then(() => {    
-          this.axios.post(this.api.deletePath, {
-            _id: row._id
+          this.axios.post(this.api.deleteStrategy, {
+            strategyId: row.strategyId
           }).then(res => {      
             if (res.status == 200) {
               this.$message('删除成功')
@@ -177,8 +176,8 @@
         })
       },
       openEdit(row) {
-        this.axios.post(this.api.getPath, {
-          pathID: row.pathID
+        this.axios.post(this.api.getStrategyById, {
+          strategyId: row.strategyId
         }).then(res => {
           this.editForm = true
           this.formEdit = res.data[0]

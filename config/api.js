@@ -1,14 +1,20 @@
+let api = process.env.API_ROOT
 export default {
-  addPath: process.env.API_ROOT + '/addPath',
-  addBanner: process.env.API_ROOT + '/addBanner',
-  getPath: process.env.API_ROOT + '/getPath',
-  getPathList: process.env.API_ROOT + '/getPathList',
-  getBanner: process.env.API_ROOT + '/getBanner',
-  getBannerList: process.env.API_ROOT + '/getBannerList',
-  getReserve: process.env.API_ROOT + '/getReserve',
-  editPath: process.env.API_ROOT + '/editPath',
-  deletePath: process.env.API_ROOT + '/deletePath',
-  deleteBanner: process.env.API_ROOT + '/deleteBanner',
-  deleteReserve: process.env.API_ROOT + '/deleteReserve',
-  upload: process.env.API_ROOT + '/upload'
+  addPath: api + '/addPath',
+  addBanner: api + '/addBanner',
+  getPath: api + '/getPath',
+  getPathList: api + '/getPathList',
+  getBanner: api + '/getBanner',
+  getBannerList: api + '/getBannerList',
+  getReserve: api + '/getReserve',
+  editPath: api + '/editPath',
+  deletePath: api + '/deletePath',
+  deleteBanner: api + '/deleteBanner',
+  deleteReserve: api + '/deleteReserve',
+  upload: api + '/upload',
+  addStrategy: api + '/addStrategy',
+  getStrategy: api + '/getStrategy',
+  getStrategyById: api + '/getStrategyById',
+  editStrategy: api + '/editStrategy',
+  deleteStrategy: api + '/deleteStrategy'
 }
