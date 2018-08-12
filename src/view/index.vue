@@ -185,9 +185,6 @@
           this.editForm = true
           this.formEdit = res.data[0]
         })
-      },
-      handleClick(row) {
-        console.log(row);
       }
     }
   };

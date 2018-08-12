@@ -1,5 +1,10 @@
 export default {
   addPath: process.env.API_ROOT + '/addPath',
+  addLoop: process.env.API_ROOT + '/addLoop',
+  getLoopList: process.env.API_ROOT + '/getLoopList',
+  deleteLoop: process.env.API_ROOT + '/deleteLoop',
+  getLoop: process.env.API_ROOT + '/getLoop',
+  editLoop: process.env.API_ROOT + '/editLoop',
   addBanner: process.env.API_ROOT + '/addBanner',
   getPath: process.env.API_ROOT + '/getPath',
   getPathList: process.env.API_ROOT + '/getPathList',

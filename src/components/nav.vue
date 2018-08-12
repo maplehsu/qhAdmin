@@ -26,7 +26,12 @@
          }, {
            title: '轮播图',
            path: '/banner',
-           index: 2,
+           index: 3,
+           icon: 'el-icon-picture fc-green'
+         }, {
+           title: '环线介绍',
+           path: '/loop',
+           index: 4,
            icon: 'el-icon-picture fc-green'
          }]
       };

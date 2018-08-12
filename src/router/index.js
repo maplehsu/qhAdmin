@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/view/index'
 import Reserve from '@/view/reserve'
 import Login from '@/view/login'
+import Loop from '@/view/loop'
 import Banner from '@/view/banner'
 
 Vue.use(Router)
@@ -29,6 +30,11 @@ const router = new Router({
       path: '/banner',
       name: 'banner',
       component: Banner
+    },
+    {
+      path: '/loop',
+      name: 'loop',
+      component: Loop
     }
   ]
 })
