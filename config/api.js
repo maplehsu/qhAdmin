@@ -1,3 +1,4 @@
+let api = process.env.API_ROOT
 export default {
   addPath: process.env.API_ROOT + '/addPath',
   addLoop: process.env.API_ROOT + '/addLoop',
@@ -15,5 +16,10 @@ export default {
   deletePath: process.env.API_ROOT + '/deletePath',
   deleteBanner: process.env.API_ROOT + '/deleteBanner',
   deleteReserve: process.env.API_ROOT + '/deleteReserve',
-  upload: process.env.API_ROOT + '/upload'
+  upload: process.env.API_ROOT + '/upload',
+  addStrategy: api + '/addStrategy',
+  getStrategy: api + '/getStrategy',
+  getStrategyById: api + '/getStrategyById',
+  editStrategy: api + '/editStrategy',
+  deleteStrategy: api + '/deleteStrategy'
 }

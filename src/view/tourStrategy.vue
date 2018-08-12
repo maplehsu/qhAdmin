@@ -6,7 +6,7 @@
       <el-main>
         <div class="box">
           <el-row>
-            <el-button type="primary" @click="addForm = true" class="btn-add">添加路线</el-button>
+            <el-button type="primary" @click="addForm = true" class="btn-add">添加攻略</el-button>
             <el-table :data="tableData" border style="width: 100%" :default-sort="{prop: 'creatTime', order: 'descending'}">
               <el-table-column prop="creatTime" label="时间">
               </el-table-column>
@@ -17,7 +17,6 @@
               　　　　<img v-for="img in scope.row.cover" :src="img.url" width="50" height="50">
               　　</template>
               </el-table-column>
-              <el-table-column prop="price" label="价格">
               </el-table-column>
               <el-table-column label="操作">
                 <template slot-scope="scope">
@@ -30,9 +29,9 @@
         </div>
       </el-main>
     </el-container>
-    <el-dialog title="添加路线" width="60%" :visible.sync="addForm">
+    <el-dialog title="添加攻略" width="60%" :visible.sync="addForm">
       <el-form :model="form">
-        <el-form-item label="路线标题" :label-width="formLabelWidth">
+        <el-form-item label="攻略标题" :label-width="formLabelWidth">
           <el-input v-model="form.title" placeholder="请输入标题"></el-input>
         </el-form-item>
         <el-form-item label="封面" :label-width="formLabelWidth">
@@ -41,13 +40,10 @@
             <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
           </el-upload>
         </el-form-item>
-        <el-form-item label="路线价格" :label-width="formLabelWidth">
-          <el-input type="number" placeholder="元为单位" v-model="form.price"></el-input>
+        <el-form-item label="攻略描述" :label-width="formLabelWidth">
+          <el-input type="textarea" :rows="2" height="200px" placeholder="请输入攻略" v-model="form.notice"></el-input>
         </el-form-item>
-        <el-form-item label="路线公告" :label-width="formLabelWidth">
-          <el-input type="textarea" :rows="2" height="200px" placeholder="请输入公告" v-model="form.notice"></el-input>
-        </el-form-item>
-        <el-form-item label="线路介绍" :label-width="formLabelWidth">
+        <el-form-item label="攻略介绍" :label-width="formLabelWidth">
           <quill-editor v-model="form.content" :options="editorOption">
           </quill-editor>
         </el-form-item>
@@ -57,9 +53,9 @@
         <el-button type="primary" @click="addSave">保 存</el-button>
       </div>
     </el-dialog>
-    <el-dialog title="编辑路线" width="60%" :visible.sync="editForm">
+    <el-dialog title="编辑攻略" width="60%" :visible.sync="editForm">
       <el-form :model="formEdit">
-        <el-form-item label="路线标题" :label-width="formLabelWidth">
+        <el-form-item label="攻略标题" :label-width="formLabelWidth">
           <el-input v-model="formEdit.title" placeholder="请输入标题"></el-input>
         </el-form-item>
         <el-form-item label="封面" :label-width="formLabelWidth">
@@ -68,13 +64,10 @@
             <div slot="tip" class="el-upload__tip">如果需要替换图片，请先删除已上传图片。</div>
           </el-upload>
         </el-form-item>
-        <el-form-item label="路线价格" :label-width="formLabelWidth">
-          <el-input type="number" placeholder="元为单位" v-model="formEdit.price"></el-input>
-        </el-form-item>
-        <el-form-item label="路线公告" :label-width="formLabelWidth">
+        <el-form-item label="攻略描述" :label-width="formLabelWidth">
           <el-input type="textarea" :rows="2" height="200px" placeholder="请输入公告" v-model="formEdit.notice"></el-input>
         </el-form-item>
-        <el-form-item label="线路介绍" :label-width="formLabelWidth">
+        <el-form-item label="攻略介绍" :label-width="formLabelWidth">
           <quill-editor v-model="formEdit.content" :options="editorOption">
           </quill-editor>
         </el-form-item>
@@ -110,10 +103,13 @@
           }
         },
         form: {
+        // 标题
           title: '',
+          // 封面
           cover: [],
-          price: '',
-          notice: '本产品同样适用于公司单位独立成团，如您的出行人数大于9人，又或者您有特殊的订制需求，那么请将您的详细需求发送到指定邮箱：xxxxxxxxxxx@xxx.com，稍后将有专业的产品旅游规划师亲自为您处理，感谢选择与信赖！',
+          // 攻略描述
+          notice: '攻略描述',
+          // 攻略介绍
           content: ''
         },
         formEdit: {},
@@ -125,13 +121,13 @@
     },
     methods: {
       init() {
-        this.axios.get(this.api.getPathList).then(res => {   
+        this.axios.get(this.api.getStrategy).then(res => {   
           console.log(res, "ressss")       
           this.tableData = res.data
         })
       },
       addSave() {
-        this.axios.post(this.api.addPath, this.form).then(res => {
+        this.axios.post(this.api.addStrategy, this.form).then(res => {
           if (res.status == 200) {
             this.addForm = false
             this.$message('添加成功')
@@ -140,7 +136,7 @@
         })
       },
       editSave() {
-        this.axios.post(this.api.editPath, this.formEdit).then(res => {
+        this.axios.post(this.api.editStrategy, this.formEdit).then(res => {
           if (res.status == 200) {
             this.editForm = false
             this.$message('修改成功')
@@ -153,8 +149,8 @@
           confirmButtonText: '确定',
           cancelButtonText: '取消'
         }).then(() => {    
-          this.axios.post(this.api.deletePath, {
-            _id: row._id
+          this.axios.post(this.api.deleteStrategy, {
+            strategyId: row.strategyId
           }).then(res => {      
             if (res.status == 200) {
               this.$message('删除成功')
@@ -180,12 +176,15 @@
         })
       },
       openEdit(row) {
-        this.axios.post(this.api.getPath, {
-          pathID: row.pathID
+        this.axios.post(this.api.getStrategyById, {
+          strategyId: row.strategyId
         }).then(res => {
           this.editForm = true
           this.formEdit = res.data[0]
         })
+      },
+      handleClick(row) {
+        console.log(row);
       }
     }
   };
@@ -196,3 +195,4 @@
     margin-bottom: 20px;
   }
 </style>
+

@@ -5,7 +5,8 @@ import Reserve from '@/view/reserve'
 import Login from '@/view/login'
 import Loop from '@/view/loop'
 import Banner from '@/view/banner'
-
+// 旅游攻略
+import TourStrategy from "@/view/tourStrategy"
 Vue.use(Router)
 
 const router = new Router({
@@ -35,6 +36,11 @@ const router = new Router({
       path: '/loop',
       name: 'loop',
       component: Loop
+    },
+    {
+      path: '/strategy',
+      name: 'tourStrategy',
+      component: TourStrategy
     }
   ]
 })
