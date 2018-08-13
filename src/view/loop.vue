@@ -89,7 +89,7 @@
           <el-input v-model="formEdit.title" placeholder="请输入标题"></el-input>
         </el-form-item>
         <el-form-item label="封面" :label-width="formLabelWidth">
-          <el-upload ref="addupload" :action="coverUrl" :limit="1" :on-remove="coverClear" :on-success="coverEditSuccess" style="text-align:left" :file-list="formEdit.cover">
+          <el-upload ref="editUpload" :action="coverUrl" :limit="1" :on-remove="coverClear" :on-success="coverEditSuccess" style="text-align:left" :file-list="formEdit.cover">
             <el-button size="small" type="primary">点击上传</el-button>
             <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
           </el-upload>
