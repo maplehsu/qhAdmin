@@ -83,6 +83,8 @@
         <el-button type="primary" @click="addSave">保 存</el-button>
       </div>
     </el-dialog>
+
+    
     <el-dialog title="编辑环线" width="60%" :visible.sync="editForm">
       <el-form :model="formEdit">
         <el-form-item label="环线标题" :label-width="formLabelWidth">
@@ -192,7 +194,13 @@
             cover: [],
             price: '',
             notice: '',
-            loopList: []
+            loopList: [],
+            adData: {
+              name: '',
+              wechat: '',
+              phone: '',
+              email: ''
+            }
           }
           this.$refs.addupload.clearFiles()
           this.resetLink()
@@ -224,7 +232,6 @@
         this.formEdit.loopList.push(Object.assign({}, this.linkEditData))
       },
       openEdit(row) {        
-        console.log(row);
         this.axios.post(this.api.getLoop, {
           loopID: row.loopID
         }).then(res => {
