@@ -32,22 +32,27 @@
            title: 'pc-环线介绍',
            path: '/loop',
            index: 4,
-           icon: 'el-icon-picture fc-green'
+           icon: 'el-icon-date fc-green'
          }, {
            title: 'pc-旅游攻略',
            path: '/strategy',
            index: 5,
-           icon: 'el-icon-picture fc-green'
+           icon: 'el-icon-tickets fc-green'
          }, {
            title: 'pc-环线预定',
            path: '/loopReserve',
            index: 6,
-           icon: 'el-icon-picture fc-green'
+           icon: 'el-icon-star-on fc-green'
+         }, {
+           title: 'pc-车辆介绍',
+           path: '/car',
+           index: 6,
+           icon: 'el-icon-news fc-green'
          }, {
            title: 'pc-联系我们',
            path: '/contact',
            index: 7,
-           icon: 'el-icon-picture fc-green'
+           icon: 'el-icon-phone fc-green'
          }]
       };
     },

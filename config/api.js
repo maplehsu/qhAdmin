@@ -26,4 +26,9 @@ export default {
   deleteContactList: api + '/deleteContactList',
   getLoopReserveList: api + '/getLoopReserveList',
   deleteLoopReserveList: api + '/deleteLoopReserveList',
+  getCarList: process.env.API_ROOT + '/getCarList',
+  getCar: process.env.API_ROOT + '/getCar',
+  addCar: process.env.API_ROOT + '/addCar',
+  editCar: process.env.API_ROOT + '/editCar',
+  deleteCar: process.env.API_ROOT + '/deleteCar',
 }

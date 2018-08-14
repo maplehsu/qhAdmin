@@ -8,6 +8,7 @@ import Banner from '@/view/banner'
 import Contact from '@/view/contact'
 import LoopReserve from '@/view/loopReserve'
 import TourStrategy from "@/view/tourStrategy"
+import Car from "@/view/car"
 Vue.use(Router)
 
 const router = new Router({
@@ -52,6 +53,11 @@ const router = new Router({
       path: '/loopReserve',
       name: 'loopReserve',
       component: LoopReserve
+    },
+    {
+      path: '/car',
+      name: 'car',
+      component: Car
     }
   ]
 })
