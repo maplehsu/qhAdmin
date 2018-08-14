@@ -21,5 +21,9 @@ export default {
   getStrategy: api + '/getStrategy',
   getStrategyById: api + '/getStrategyById',
   editStrategy: api + '/editStrategy',
-  deleteStrategy: api + '/deleteStrategy'
+  deleteStrategy: api + '/deleteStrategy',
+  getContactList: api + '/getContactList',
+  deleteContactList: api + '/deleteContactList',
+  getLoopReserveList: api + '/getLoopReserveList',
+  deleteLoopReserveList: api + '/deleteLoopReserveList',
 }

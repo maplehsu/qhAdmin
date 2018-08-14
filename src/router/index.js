@@ -5,7 +5,8 @@ import Reserve from '@/view/reserve'
 import Login from '@/view/login'
 import Loop from '@/view/loop'
 import Banner from '@/view/banner'
-// 旅游攻略
+import Contact from '@/view/contact'
+import LoopReserve from '@/view/loopReserve'
 import TourStrategy from "@/view/tourStrategy"
 Vue.use(Router)
 
@@ -41,6 +42,16 @@ const router = new Router({
       path: '/strategy',
       name: 'tourStrategy',
       component: TourStrategy
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      component: Contact
+    },
+    {
+      path: '/loopReserve',
+      name: 'loopReserve',
+      component: LoopReserve
     }
   ]
 })

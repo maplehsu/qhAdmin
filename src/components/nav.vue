@@ -14,29 +14,39 @@
     data() {
       return {
          url: [{
-           title: '路线管理',
+           title: '微信-路线管理',
            path: '/index',
            index: 1,
            icon: 'el-icon-location fc-purple'
          }, {
-           title: '预约订单',
+           title: '微信-预约订单',
            path: '/reserve',
            index: 2,
            icon: 'el-icon-tickets fc-green'
          }, {
-           title: '轮播图',
-           path: '/banner',
+           title: '我是分割线',
+           path: '',
            index: 3,
-           icon: 'el-icon-picture fc-green'
+           icon: ''
          }, {
-           title: '环线介绍',
+           title: 'pc-环线介绍',
            path: '/loop',
            index: 4,
            icon: 'el-icon-picture fc-green'
          }, {
-           title: '旅游攻略',
+           title: 'pc-旅游攻略',
            path: '/strategy',
-           index: 2,
+           index: 5,
+           icon: 'el-icon-picture fc-green'
+         }, {
+           title: 'pc-环线预定',
+           path: '/loopReserve',
+           index: 6,
+           icon: 'el-icon-picture fc-green'
+         }, {
+           title: 'pc-联系我们',
+           path: '/contact',
+           index: 7,
            icon: 'el-icon-picture fc-green'
          }]
       };
